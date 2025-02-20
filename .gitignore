@@ -1,0 +1,18 @@
+# Ignorar logs y archivos del sistema
+logs/
+*.log
+*.pid
+
+# Ignorar archivos de configuración sensibles
+.env
+
+# Ignorar archivos generados por Docker
+application/moodle
+application/mysql_data/
+application/moodledata/
+apache/ssl/
+*.pem
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
