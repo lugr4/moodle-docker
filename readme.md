@@ -3,7 +3,7 @@ Este repositorio contiene la configuración necesaria para ejecutar **Moodle en 
 
 ## 📂 **Estructura del Proyecto**
 La estructura del proyecto está organizada de la siguiente manera:
-
+```sh
 moodle-docker/ 
     │── apache/ # Configuración de Apache 
     │   │ 
@@ -22,20 +22,20 @@ moodle-docker/
     │── entrypoint.sh # Script de inicialización del contenedor PHP 
     │── php.ini # Configuración de PHP 
     │── .gitignore # Archivos y carpetas excluidos del repositorio │── README.md # Documentación del proyecto.
-
+```
 
 ---
 ## 🛠 **Descripción de cada Carpeta y Archivo**
 ### 🔹 **1. `apache/`**
 Contiene la configuración de Apache.  
 - **`conf/httpd.conf`** → Archivo de configuración principal de Apache.  
-- **`ssl/`** → Carpeta donde se almacenan los certificados SSL si se usa HTTPS.  
 
 ### 🔹 **2. `application/`**
 Es el directorio donde se almacenan Moodle, su caché y la base de datos.  
 - **`moodle/`** → Código fuente de Moodle.  
 - **`moodledata/`** → Carpeta donde Moodle almacena archivos subidos por usuarios.  
 - **`mysql_data/`** → Archivos internos de la base de datos MySQL.  
+- **`ssl/`** → Carpeta donde se almacenan los certificados SSL si se usa HTTPS. Puedes generar estas llaves mediante mkcert.  
 
 ⚠️ **IMPORTANTE:** `moodledata/` y `mysql_data/` **NO deben subirse a Git**.
 
@@ -77,18 +77,23 @@ Lista de archivos y carpetas que **NO deben subirse a Git**, como:
 ```sh
 git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
+```
 
 🔹 2. Construir y Ejecutar los Contenedores
+```sh
     docker-compose up -d
-    
+```
+
 🔹 3. Acceder a Moodle
     Abre en tu navegador:
 🌐 Moodle: http://localhost
 🔧 phpMyAdmin (opcional): http://localhost:8080
 
-🔹 4. Detener los Contenedores
-    docker-compose down
 
+🔹 4. Detener los Contenedores
+```sh
+    docker-compose down
+```
 
 🎯 Notas Finales
     Este entorno está diseñado para desarrollo, no producción.
